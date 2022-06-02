@@ -12,7 +12,7 @@ export default function Distance({ leg }: DistanceProps) {
   if (!leg.distance || !leg.duration) return null;
 
   const days = Math.floor(
-    commutesPerYear * leg.duration.value / secondsPerDay
+    (commutesPerYear * leg.duration.value) / secondsPerDay
   );
   const cost = Math.floor(
     (leg.distance.value / 1000) * litreCostKM * commutesPerYear
@@ -21,9 +21,20 @@ export default function Distance({ leg }: DistanceProps) {
   return (
     <div>
       <p>
-        <span>Essa viatura está <span className="highlight">{leg.distance.text}</span> de distância da residencia</span>
-        <br/>
-        <span>Chegará em torno ded <span className="highlight">{leg.duration.text}</span></span>
+        <span>
+          Essa viatura está{" "}
+          <span className="highlight">{leg.distance.text}</span> de distância da
+          residência
+        </span>
+        <br />
+        <span>
+          Chegará em torno de{" "}
+          <span className="highlight">{leg.duration.text}</span>
+        </span>
+        <br />
+        <span>
+          Entrar em contato: <span className="highlight">11 98888-8888</span>
+        </span>
       </p>
     </div>
   );

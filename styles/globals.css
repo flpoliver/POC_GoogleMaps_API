@@ -23,7 +23,7 @@ a {
 .controls {
   width: 20%;
   padding: 1rem;
-  background: #14161a;
+  background: #3a659e;
   color: #fff;
 }
 
@@ -49,4 +49,26 @@ a {
 .combobox-input {
   width: 100%;
   padding: 0.5rem;
+}
+
+[data-reach-listbox-input] {
+  border-radius: 8px;
+}
+
+[data-reach-listbox-button][aria-expanded="true"] {
+}
+
+#listbox-input--1 {
+  width: 100%;
+  background-color: white;
+  padding: 8px;
+  color: black;
+}
+
+#button--listbox-input--1 {
+  width: 100%;
+  border: 0;
+  align-items: center;
+  color: black;
+  justify-content: center;
 }

@@ -17,7 +17,7 @@ type DirectionsResult = google.maps.DirectionsResult;
 type MapOptions = google.maps.MapOptions;
 
 export default function Map() {
-  const [office, setOffice] = useState<LatLngLiteral>();
+  const [house, setHouse] = useState<LatLngLiteral>();
   const [directions, setDirections] = useState<DirectionsResult>();
   const mapRef = useRef<GoogleMap>();
   const center = useMemo<LatLngLiteral>(
@@ -34,16 +34,16 @@ export default function Map() {
   );
 
   const onLoad = useCallback((map) => (mapRef.current = map), []);
-  const houses = useMemo(() => generateHouses(center), [center]);
+  const vehicles = useMemo(() => generateVehicles(center), [center]);
 
   const fetchDirections = (vehicle: LatLngLiteral) => {
-    if (!office) return;
+    if (!house) return;
 
     const service = new google.maps.DirectionsService();
     service.route(
       {
         origin: vehicle,
-        destination: office,
+        destination: house,
         travelMode: google.maps.TravelMode.DRIVING,
       },
       (result, status) => {
@@ -59,12 +59,12 @@ export default function Map() {
       <div className="controls">
         <h1>Cliente</h1>
         <Places
-          setOffice={(position) => {
-            setOffice(position);
+          setHouse={(position) => {
+            setHouse(position);
             mapRef.current?.panTo(position);
           }}
         />
-        {!office && <p>Insira o endereço do cliente</p>}
+        {!house && <p>Insira o endereço do cliente</p>}
         {directions && <Distance leg={directions.routes[0].legs[0]} />}
       </div>
       <div className="map">
@@ -88,20 +88,20 @@ export default function Map() {
             />
           )}
 
-          {office && (
+          {house && (
             <>
-              <Marker position={office} icon={Home.src} />
+              <Marker position={house} icon={Home.src} />
 
               <MarkerClusterer>
                 {(clusterer) =>
-                  houses.map((house) => (
+                  vehicles.map((vehicle) => (
                     <Marker
-                      key={house.lat}
-                      position={house}
+                      key={vehicle.lat}
+                      position={vehicle}
                       icon={Car.src}
                       clusterer={clusterer}
                       onClick={() => {
-                        fetchDirections(house);
+                        fetchDirections(vehicle);
                       }}
                     />
                   ))
@@ -110,9 +110,9 @@ export default function Map() {
 
               {}
 
-              <Circle center={office} radius={700} options={closeOptions} />
-              <Circle center={office} radius={1200} options={middleOptions} />
-              <Circle center={office} radius={1700} options={farOptions} />
+              <Circle center={house} radius={1500} options={closeOptions} />
+              <Circle center={house} radius={2500} options={middleOptions} />
+              <Circle center={house} radius={4000} options={farOptions} />
             </>
           )}
         </GoogleMap>
@@ -151,14 +151,14 @@ const farOptions = {
   fillColor: "#FF5252",
 };
 
-const generateHouses = (position: LatLngLiteral) => {
-  const _houses: Array<LatLngLiteral> = [];
+const generateVehicles = (position: LatLngLiteral) => {
+  const _vehicles: Array<LatLngLiteral> = [];
   for (let i = 0; i < 10; i++) {
-    const direction = Math.random() < 0.1 ? -80 : 80;
-    _houses.push({
+    const direction = Math.random() < 5 ? -40 : 800;
+    _vehicles.push({
       lat: position.lat + Math.random() / direction,
       lng: position.lng + Math.random() / direction,
     });
   }
-  return _houses;
+  return _vehicles;
 };
