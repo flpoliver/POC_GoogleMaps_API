@@ -109,6 +109,14 @@
     "@reach/utils" "0.16.0"
     "tslib" "^2.3.0"
 
+"@reach/auto-id@0.17.0":
+  "integrity" "sha512-ud8iPwF52RVzEmkHq1twuqGuPA+moreumUHdtgvU3sr3/15BNhwp3KyDLrKKSz0LP1r3V4pSdyF9MbYM8BoSjA=="
+  "resolved" "https://registry.npmjs.org/@reach/auto-id/-/auto-id-0.17.0.tgz"
+  "version" "0.17.0"
+  dependencies:
+    "@reach/utils" "0.17.0"
+    "tslib" "^2.3.0"
+
 "@reach/combobox@^0.16.5":
   "integrity" "sha512-Csm79qZN3aGpIHnqMYcDH0Y75Z0K8u3j1DzQiRa3w8aDwdmQFocBIo3p9veEytiKm28Dccj/wmmvrCpgVMVH9Q=="
   "resolved" "https://registry.npmjs.org/@reach/combobox/-/combobox-0.16.5.tgz"
@@ -131,6 +139,35 @@
     "@reach/utils" "0.16.0"
     "tslib" "^2.3.0"
 
+"@reach/descendants@0.17.0":
+  "integrity" "sha512-c7lUaBfjgcmKFZiAWqhG+VnXDMEhPkI4kAav/82XKZD6NVvFjsQOTH+v3tUkskrAPV44Yuch0mFW/u5Ntifr7Q=="
+  "resolved" "https://registry.npmjs.org/@reach/descendants/-/descendants-0.17.0.tgz"
+  "version" "0.17.0"
+  dependencies:
+    "@reach/utils" "0.17.0"
+    "tslib" "^2.3.0"
+
+"@reach/listbox@^0.17.0":
+  "integrity" "sha512-AMnH1P6/3VKy2V/nPb4Es441arYR+t4YRdh9jdcFVrCOD6y7CQrlmxsYjeg9Ocdz08XpdoEBHM3PKLJqNAUr7A=="
+  "resolved" "https://registry.npmjs.org/@reach/listbox/-/listbox-0.17.0.tgz"
+  "version" "0.17.0"
+  dependencies:
+    "@reach/auto-id" "0.17.0"
+    "@reach/descendants" "0.17.0"
+    "@reach/machine" "0.17.0"
+    "@reach/popover" "0.17.0"
+    "@reach/utils" "0.17.0"
+    "prop-types" "^15.7.2"
+
+"@reach/machine@0.17.0":
+  "integrity" "sha512-9EHnuPgXzkbRENvRUzJvVvYt+C2jp7PGN0xon7ffmKoK8rTO6eA/bb7P0xgloyDDQtu88TBUXKzW0uASqhTXGA=="
+  "resolved" "https://registry.npmjs.org/@reach/machine/-/machine-0.17.0.tgz"
+  "version" "0.17.0"
+  dependencies:
+    "@reach/utils" "0.17.0"
+    "@xstate/fsm" "1.4.0"
+    "tslib" "^2.3.0"
+
 "@reach/observe-rect@1.2.0":
   "integrity" "sha512-Ba7HmkFgfQxZqqaeIWWkNK0rEhpxVQHIoVyW1YDSkGsGIXzcaW4deC8B0pZrNSSyLTdIk7y+5olKt5+g0GmFIQ=="
   "resolved" "https://registry.npmjs.org/@reach/observe-rect/-/observe-rect-1.2.0.tgz"
@@ -147,12 +184,32 @@
     "tabbable" "^4.0.0"
     "tslib" "^2.3.0"
 
+"@reach/popover@0.17.0":
+  "integrity" "sha512-yYbBF4fMz4Ml4LB3agobZjcZ/oPtPsNv70ZAd7lEC2h7cvhF453pA+zOBGYTPGupKaeBvgAnrMjj7RnxDU5hoQ=="
+  "resolved" "https://registry.npmjs.org/@reach/popover/-/popover-0.17.0.tgz"
+  "version" "0.17.0"
+  dependencies:
+    "@reach/portal" "0.17.0"
+    "@reach/rect" "0.17.0"
+    "@reach/utils" "0.17.0"
+    "tabbable" "^4.0.0"
+    "tslib" "^2.3.0"
+
 "@reach/portal@0.16.2":
   "integrity" "sha512-9ur/yxNkuVYTIjAcfi46LdKUvH0uYZPfEp4usWcpt6PIp+WDF57F/5deMe/uGi/B/nfDweQu8VVwuMVrCb97JQ=="
   "resolved" "https://registry.npmjs.org/@reach/portal/-/portal-0.16.2.tgz"
   "version" "0.16.2"
   dependencies:
     "@reach/utils" "0.16.0"
+    "tiny-warning" "^1.0.3"
+    "tslib" "^2.3.0"
+
+"@reach/portal@0.17.0":
+  "integrity" "sha512-+IxsgVycOj+WOeNPL2NdgooUdHPSY285wCtj/iWID6akyr4FgGUK7sMhRM9aGFyrGpx2vzr+eggbUmAVZwOz+A=="
+  "resolved" "https://registry.npmjs.org/@reach/portal/-/portal-0.17.0.tgz"
+  "version" "0.17.0"
+  dependencies:
+    "@reach/utils" "0.17.0"
     "tiny-warning" "^1.0.3"
     "tslib" "^2.3.0"
 
@@ -167,10 +224,29 @@
     "tiny-warning" "^1.0.3"
     "tslib" "^2.3.0"
 
+"@reach/rect@0.17.0":
+  "integrity" "sha512-3YB7KA5cLjbLc20bmPkJ06DIfXSK06Cb5BbD2dHgKXjUkT9WjZaLYIbYCO8dVjwcyO3GCNfOmPxy62VsPmZwYA=="
+  "resolved" "https://registry.npmjs.org/@reach/rect/-/rect-0.17.0.tgz"
+  "version" "0.17.0"
+  dependencies:
+    "@reach/observe-rect" "1.2.0"
+    "@reach/utils" "0.17.0"
+    "prop-types" "^15.7.2"
+    "tiny-warning" "^1.0.3"
+    "tslib" "^2.3.0"
+
 "@reach/utils@0.16.0":
   "integrity" "sha512-PCggBet3qaQmwFNcmQ/GqHSefadAFyNCUekq9RrWoaU9hh/S4iaFgf2MBMdM47eQj5i/Bk0Mm07cP/XPFlkN+Q=="
   "resolved" "https://registry.npmjs.org/@reach/utils/-/utils-0.16.0.tgz"
   "version" "0.16.0"
+  dependencies:
+    "tiny-warning" "^1.0.3"
+    "tslib" "^2.3.0"
+
+"@reach/utils@0.17.0":
+  "integrity" "sha512-M5y8fCBbrWeIsxedgcSw6oDlAMQDkl5uv3VnMVJ7guwpf4E48Xlh1v66z/1BgN/WYe2y8mB/ilFD2nysEfdGeA=="
+  "resolved" "https://registry.npmjs.org/@reach/utils/-/utils-0.17.0.tgz"
+  "version" "0.17.0"
   dependencies:
     "tiny-warning" "^1.0.3"
     "tslib" "^2.3.0"
@@ -335,6 +411,11 @@
   dependencies:
     "@typescript-eslint/types" "5.10.2"
     "eslint-visitor-keys" "^3.0.0"
+
+"@xstate/fsm@1.4.0":
+  "integrity" "sha512-uTHDeu2xI5E1IFwf37JFQM31RrH7mY7877RqPBS4ZqSNUwoLDuct8AhBWaXGnVizBAYyimVwgCyGa9z/NiRhXA=="
+  "resolved" "https://registry.npmjs.org/@xstate/fsm/-/fsm-1.4.0.tgz"
+  "version" "1.4.0"
 
 "acorn-jsx@^5.3.1":
   "integrity" "sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ=="

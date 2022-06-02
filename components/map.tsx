@@ -19,6 +19,7 @@ type MapOptions = google.maps.MapOptions;
 export default function Map() {
   const [house, setHouse] = useState<LatLngLiteral>();
   const [directions, setDirections] = useState<DirectionsResult>();
+  const [visibleCircles, setVisibleCircles] = useState(false);
   const mapRef = useRef<GoogleMap>();
   const center = useMemo<LatLngLiteral>(
     () => ({ lat: -23.2954323, lng: -46.7400958 }),
@@ -26,7 +27,7 @@ export default function Map() {
   );
   const options = useMemo<MapOptions>(
     () => ({
-      mapId: "ee930ed25ba34625",
+      mapId: "6d54c445bb8ff361",
       disableDefaultUI: true,
       clickableIcons: false,
     }),
@@ -58,6 +59,9 @@ export default function Map() {
     <div className="container">
       <div className="controls">
         <h1>Cliente</h1>
+        <button onClick={() => setVisibleCircles(!visibleCircles)}>
+          proximidade
+        </button>
         <Places
           setHouse={(position) => {
             setHouse(position);
@@ -110,9 +114,17 @@ export default function Map() {
 
               {}
 
-              <Circle center={house} radius={1500} options={closeOptions} />
-              <Circle center={house} radius={2500} options={middleOptions} />
-              <Circle center={house} radius={4000} options={farOptions} />
+              {visibleCircles && (
+                <>
+                  <Circle center={house} radius={1500} options={closeOptions} />
+                  <Circle
+                    center={house}
+                    radius={2500}
+                    options={middleOptions}
+                  />
+                  <Circle center={house} radius={4000} options={farOptions} />
+                </>
+              )}
             </>
           )}
         </GoogleMap>
@@ -122,7 +134,7 @@ export default function Map() {
 }
 
 const defaultOptions = {
-  strokeOpacity: 0.5,
+  strokeOpacity: 0.9,
   strokeWeight: 2,
   clickable: false,
   draggable: false,
@@ -132,21 +144,21 @@ const defaultOptions = {
 const closeOptions = {
   ...defaultOptions,
   zIndex: 3,
-  fillOpacity: 0.05,
+  fillOpacity: 0.02,
   strokeColor: "#8BC34A",
   fillColor: "#8BC34A",
 };
 const middleOptions = {
   ...defaultOptions,
   zIndex: 2,
-  fillOpacity: 0.05,
+  fillOpacity: 0.02,
   strokeColor: "#FBC02D",
   fillColor: "#FBC02D",
 };
 const farOptions = {
   ...defaultOptions,
   zIndex: 1,
-  fillOpacity: 0.05,
+  fillOpacity: 0.02,
   strokeColor: "#FF5252",
   fillColor: "#FF5252",
 };
